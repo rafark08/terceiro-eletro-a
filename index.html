@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alunos - Eletro 2023 A</title>
 <style>
+    @media (max-width: 768px) {
+    .background-image {
+        background-size: contain; /* Ajuste para tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .background-image {
+        background-size: contain; /* Ajuste para celulares */
+    }
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -599,7 +610,7 @@ document.addEventListener("DOMContentLoaded", function() {
             currentIndex = (currentIndex + 1) % fonts.length;
         }
 
-        // Trocar fonte a cada 2 segundos
+        // Trocar fonte a cada 1 segundo
         setInterval(changeFont, 1000);
     }, 3000); // Espera de 3 segundos
 });
