@@ -78,6 +78,26 @@ body {
         80% { font-family: 'Verdana'; }
         100% { font-family: Arial; }
     }
+    @media (max-width: 480px) {
+    .intro-text {
+        font-size: 1.5em; /* Ajuste de tamanho de fonte para celulares */
+        line-height: 1.2; /* Ajuste de altura da linha para celulares */
+        animation: changeFont 2s infinite;
+    }
+    
+    .background-image {
+        background-size: contain; /* Garante que a imagem inteira seja exibida */
+    }
+    
+    @keyframes changeFont {
+        0% { font-family: Arial; }
+        20% { font-family: 'Courier New'; }
+        40% { font-family: 'Georgia'; }
+        60% { font-family: 'Times New Roman'; }
+        80% { font-family: 'Verdana'; }
+        100% { font-family: Arial; }
+    }
+}
 }
 .students {
     background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para a sessão dos alunos */
