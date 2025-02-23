@@ -5,17 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alunos - Eletro 2023 A</title>
 <style>
-    @media (max-width: 768px) {
-    .background-image {
-        background-size: contain; /* Ajuste para tablets */
-    }
-}
-
-@media (max-width: 480px) {
-    .background-image {
-        background-size: contain; /* Ajuste para celulares */
-    }
-}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -60,16 +49,34 @@ body {
 }
 
 /* Media Queries para dispositivos móveis e tablets */
+/* Media Queries para dispositivos móveis e tablets */
 @media (max-width: 768px) {
-    .intro-text {
-        font-size: 2.5em; /* Ajuste para tablets */
+    .background-image {
+        background-size: contain; /* Garante que a imagem inteira seja exibida */
     }
 }
 
 @media (max-width: 480px) {
+    .background-image {
+        background-size: contain; /* Garante que a imagem inteira seja exibida */
+    }
+    
     .intro-text {
-        font-size: 2em; /* Ajuste para celulares */
-        line-height: 1.2; /* Ajuste de altura da linha para celulares */
+        font-size: 2em; /* Ajuste de tamanho de fonte para celulares */
+    }
+    
+    /* Lista de fontes disponíveis em dispositivos móveis */
+    .intro-text {
+        animation: changeFont 2s infinite;
+    }
+    
+    @keyframes changeFont {
+        0% { font-family: Arial; }
+        20% { font-family: 'Courier New'; }
+        40% { font-family: 'Georgia'; }
+        60% { font-family: 'Times New Roman'; }
+        80% { font-family: 'Verdana'; }
+        100% { font-family: Arial; }
     }
 }
 .students {
@@ -610,7 +617,7 @@ document.addEventListener("DOMContentLoaded", function() {
             currentIndex = (currentIndex + 1) % fonts.length;
         }
 
-        // Trocar fonte a cada 1 segundo
+        // Trocar fonte a cada 2 segundos
         setInterval(changeFont, 1000);
     }, 3000); // Espera de 3 segundos
 });
