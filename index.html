@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alunos - Eletro 2023 A</title>
 <style>
+/* Classes adicionais para exibir ou ocultar blur e texto */
+.no-blur .background-image {
+    filter: none;
+}
+
+.no-blur .intro-text {
+    display: none;
+}
+
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -391,13 +401,12 @@ body {
 </style>
 </head>
 <body>
-<div class="section intro">
-    <div class="background-image" id="background-image"></div>
-    <h1 class="intro-text" id="intro-text">
-        TERCEIRÃO<br>
-        ELETRO A
-    </h1>
-</div>
+    <div class="section intro">
+        <div class="background-image" id="background-image"></div>
+        <h1 class="intro-text" id="intro-text" onclick="toggleEffect()">TERCEIRÃO<br>ELETRO A</h1>
+    </div>
+    
+
 <div class="section students">
     <div class="container">
         <!-- Alunos com datas de nascimento -->
@@ -586,6 +595,43 @@ body {
     </div>
 </div>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function toggleEffect() {
+            const body = document.body;
+            const backgroundImage = document.getElementById("background-image");
+            const introText = document.getElementById("intro-text");
+    
+            if (body.classList.contains("no-blur")) {
+                // Remover classe 'no-blur' para restaurar blur e texto
+                body.classList.remove("no-blur");
+                // Restaurar filtro blur e opacidade do texto
+                backgroundImage.style.filter = "blur(8px)";
+                introText.style.display = "block";
+                introText.style.opacity = "1";
+            } else {
+                // Adicionar classe 'no-blur' para remover blur e texto
+                body.classList.add("no-blur");
+                // Remover filtro blur e ocultar texto
+                backgroundImage.style.filter = "none";
+                introText.style.display = "none";
+                introText.style.opacity = "0";
+            }
+        }
+    
+        // Adicionar evento de clique para alternar o efeito de blur e o texto
+        const introText = document.getElementById("intro-text");
+        introText.addEventListener("click", toggleEffect);
+    
+        const backgroundImage = document.getElementById("background-image");
+        backgroundImage.addEventListener("click", toggleEffect);
+    
+        // Efeito inicial de blur e introdução
+        setTimeout(function () {
+            document.getElementById("background-image").style.filter = "blur(8px)";
+            introText.style.opacity = "1";
+        }, 3000);
+    });
+    
 document.addEventListener("DOMContentLoaded", function() {
     // Função para calcular a idade
     function calculateAge(birthdate) {
