@@ -1,20 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v11
+<head> v12
     
+
+
 <audio id="musica" loop>
     <source src="musica/trilha.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Overlay de entrada -->
+<div id="overlay">
+    <div class="overlay-content">
+        <h1>Clique para continuar<br>com o site do Terceirão de Eletro 2023</h1>
+        <button id="startBtn">Entrar</button>
+    </div>
+</div>
+
+<style>
+/* Overlay cobrindo toda a tela */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* Aplica blur */
+    background: rgba(0,0,0,0.6); /* Fundo escuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Conteúdo centralizado */
+.overlay-content {
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.overlay-content h1 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+#startBtn {
+    padding: 12px 24px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+#startBtn:hover {
+    background: #2980b9;
+}
+</style>
+
 <script>
 const musica = document.getElementById("musica");
+const overlay = document.getElementById("overlay");
+const startBtn = document.getElementById("startBtn");
 
-// Captura o primeiro scroll do usuário
-document.addEventListener("scroll", () => {
-    musica.play();
-}, { once: true });
+startBtn.addEventListener("click", () => {
+    musica.play(); // inicia a música
+    overlay.style.display = "none"; // remove o overlay
+});
 </script>
 
+
+
+
+
+
+
+    
     
     
 <meta charset="UTF-8">
@@ -706,6 +770,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
