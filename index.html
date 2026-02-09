@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v20.4
+<head> v21
     
 
 
@@ -550,7 +550,7 @@ body {
 <body> 
 <div class="section intro">
     <div class="background-image" id="background-image"></div>
-    <!-- Texto em uma linha só -->
+    <!-- Texto reposicionado para o topo -->
     <h1 class="intro-text" id="intro-text" onclick="toggleEffect()">FORMADOS 2025</h1>
 </div>
 
@@ -561,10 +561,12 @@ body {
     left: 50%;            /* centraliza horizontalmente */
     transform: translateX(-50%); /* corrige alinhamento */
     z-index: 1;
-    font-size: 3em;
+    font-size: 2em;       /* texto menor */
     color: #fff;
     text-transform: uppercase; /* CAPS LOCK */
     transition: opacity 1s ease-in-out;
+    opacity: 0;           /* começa invisível */
+    display: none;        /* escondido até ser ativado */
     animation: flicker 2s infinite, glow 1.5s ease-in-out infinite alternate;
 }
 
@@ -584,6 +586,53 @@ body {
     }
 }
 </style>
+
+<script>
+const musica = document.getElementById("musica");
+const overlay = document.getElementById("overlay");
+const startBtn = document.getElementById("startBtn");
+
+startBtn.addEventListener("click", () => {
+    // inicia música
+    musica.play();
+
+    // remove overlay
+    overlay.style.display = "none";
+
+    // aguarda 3 segundos e só então mostra o texto "FORMADOS 2025"
+    setTimeout(function () {
+        const introText = document.getElementById("intro-text");
+        introText.style.display = "block";
+        introText.style.opacity = "1";
+    }, 3000);
+});
+
+// Função para alternar mostrar/ocultar o texto
+function toggleEffect() {
+    const body = document.body;
+    const introText = document.getElementById("intro-text");
+
+    if (body.classList.contains("no-blur")) {
+        body.classList.remove("no-blur");
+        introText.style.display = "block";
+        introText.style.opacity = "1";
+    } else {
+        body.classList.add("no-blur");
+        introText.style.display = "none";
+        introText.style.opacity = "0";
+    }
+}
+
+// Adicionar evento de clique para alternar o efeito
+document.addEventListener("DOMContentLoaded", function () {
+    const introText = document.getElementById("intro-text");
+    const backgroundImage = document.getElementById("background-image");
+
+    introText.addEventListener("click", toggleEffect);
+    backgroundImage.addEventListener("click", toggleEffect);
+});
+</script>
+
 
 
 <div class="section students">
@@ -863,6 +912,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
