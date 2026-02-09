@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v5
+<head> v6
     
-<audio id="musica" autoplay loop muted>
+<audio id="musica" loop>
     <source src="musica/trilha.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const musica = document.getElementById("musica");
 
-function ativarSom() {
-    musica.muted = false;   // libera o som
-    musica.play();           // garante que toca
-    document.removeEventListener('click', ativarSom);
-    document.removeEventListener('touchstart', ativarSom);
-    document.removeEventListener('keydown', ativarSom);
-}
+// Cria uma “tela invisível” que captura o primeiro toque
+document.addEventListener("click", () => {
+    musica.play();
+}, { once: true });
 
-// qualquer interação conta
-document.addEventListener('click', ativarSom);
-document.addEventListener('touchstart', ativarSom);
-document.addEventListener('keydown', ativarSom);
+document.addEventListener("touchstart", () => {
+    musica.play();
+}, { once: true });
 </script>
+
 
     
     
@@ -714,6 +711,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
