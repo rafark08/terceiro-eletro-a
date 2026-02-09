@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v6
+<head> v7 scroll
     
-<audio id="musica" loop>
+<audio id="musica" autoplay loop muted>
     <source src="musica/trilha.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio HTML5.
 </audio>
 
 <script>
 const musica = document.getElementById("musica");
 
-// Cria uma “tela invisível” que captura o primeiro toque
-document.addEventListener("click", () => {
-    musica.play();
-}, { once: true });
+function ativarSom() {
+    musica.muted = false;   // libera o som
+    musica.play();           // garante que toca
+    // remove os listeners para não disparar várias vezes
+    document.removeEventListener('scroll', ativarSom);
+    document.removeEventListener('click', ativarSom);
+    document.removeEventListener('touchstart', ativarSom);
+}
 
-document.addEventListener("touchstart", () => {
-    musica.play();
-}, { once: true });
+document.addEventListener('scroll', ativarSom);       // scroll conta como interação
+document.addEventListener('click', ativarSom);        // clique também
+document.addEventListener('touchstart', ativarSom);   // toque também
 </script>
 
 
@@ -711,6 +716,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
