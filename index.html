@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v9
-
+<head> v10
     
-  <audio id="musica" loop>
-  <source src="musica/trilha.mp3" type="audio/mpeg">
+<audio id="musica" loop>
+    <source src="musica/trilha.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const musica = document.getElementById("musica");
 
-function ativarSom() {
-  musica.play().then(() => {
-    console.log("Música tocando!");
-  }).catch(err => {
-    console.log("Erro ao tentar tocar:", err);
-  });
+// Cria uma “tela invisível” que captura o primeiro toque
+document.addEventListener("click", () => {
+    musica.play();
+}, { once: true });
 
-  // remove os listeners para não repetir
-  document.removeEventListener('click', ativarSom);
-  document.removeEventListener('touchstart', ativarSom);
-  document.removeEventListener('keydown', ativarSom);
-}
-
-// qualquer interação conta
-document.addEventListener('click', ativarSom);
-document.addEventListener('touchstart', ativarSom);
-document.addEventListener('keydown', ativarSom);
+document.addEventListener("touchstart", () => {
+    musica.play();
+}, { once: true });
 </script>
 
 
@@ -721,12 +711,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 
