@@ -6,25 +6,23 @@
     <source src="musica/trilha.mp3" type="audio/mpeg">
 </audio>
 
-<div id="aviso" style="position:fixed;top:10px;width:100%;text-align:center;">
-  Toque na tela para ouvir a música 🎵
-</div>
-
 <script>
 const musica = document.getElementById("musica");
-const aviso = document.getElementById("aviso");
 
 function ativarSom() {
-  musica.muted = false;
-  musica.play();
-  aviso.style.display = 'none';
-  document.removeEventListener('click', ativarSom);
-  document.removeEventListener('touchstart', ativarSom);
+    musica.muted = false;   // libera o som
+    musica.play();           // garante que toca
+    document.removeEventListener('click', ativarSom);
+    document.removeEventListener('touchstart', ativarSom);
+    document.removeEventListener('keydown', ativarSom);
 }
 
+// qualquer interação conta
 document.addEventListener('click', ativarSom);
 document.addEventListener('touchstart', ativarSom);
+document.addEventListener('keydown', ativarSom);
 </script>
+
     
     
 <meta charset="UTF-8">
@@ -716,6 +714,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
