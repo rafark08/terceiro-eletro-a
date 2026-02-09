@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v25
+<head> v26
     
 <audio id="musica" loop>
     <source src="musica/trilha.mp3" type="audio/mpeg">
@@ -838,38 +838,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Efeito de introdução
-    setTimeout(function() {
-        document.getElementById("background-image").style.filter = "blur(8px)";
-        document.getElementById("intro-text").style.opacity = "1";
-
-        // Lista de fontes
-        const fonts = [
-            "Arial",
-            "Arial Italic",
-            "Comic Sans MS",
-            "Calibri",
-            "Lucida Handwriting",
-            "Impact",
-            "Verdana",
-            "Times New Roman Italic",
-            "Courier New",
-            "Tahoma"
-        ];
-
-        let currentIndex = 0;
-        const introText = document.getElementById("intro-text");
-
-        // Função para trocar a fonte
-        function changeFont() {
-            introText.style.fontFamily = fonts[currentIndex];
-            currentIndex = (currentIndex + 1) % fonts.length;
-        }
-
-        // Trocar fonte a cada 2 segundos
-        setInterval(changeFont, 1000);
-    }, 3000); // Espera de 3 segundos
-});
+   
 </script>
 </body>
 </html>
