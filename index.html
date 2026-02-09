@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v18
+<head> v19
     
 
 
@@ -18,7 +18,7 @@
 
 <!-- Texto que aparecerá após 3 segundos -->
 <h1 class="intro-text" id="intro-text" style="display:none; opacity:0;">
-    Formados 2025
+    FORMADOS 2025
 </h1>
 
 <style>
@@ -63,15 +63,27 @@
     background: #2980b9;
 }
 
-/* Estilo do texto "Formados 2025" */
+/* Estilo do texto "FORMADOS 2025" */
 .intro-text {
     position: relative;
     z-index: 1;
     font-size: 3em;
     color: white;
-    text-shadow: 2px 2px 4px #000;
+    text-shadow: 2px 2px 4px #000; /* apenas contorno, sem fundo */
     text-align: center;
     transition: opacity 1s ease-in-out;
+    text-transform: uppercase; /* CAPS LOCK */
+    animation: flicker 2s infinite; /* efeito de piscar */
+}
+
+/* Animação de piscar como lâmpada */
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.3;
+    }
 }
 </style>
 
@@ -87,7 +99,7 @@ startBtn.addEventListener("click", () => {
     // remove overlay
     overlay.style.display = "none";
 
-    // aguarda 3 segundos e só então mostra o texto "Formados 2025"
+    // aguarda 3 segundos e só então mostra o texto "FORMADOS 2025"
     setTimeout(function () {
         const introText = document.getElementById("intro-text");
         introText.style.display = "block";
@@ -814,6 +826,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
