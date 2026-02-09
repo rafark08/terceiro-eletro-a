@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v19
+<head> v20
     
 
 
@@ -68,21 +68,26 @@
     position: relative;
     z-index: 1;
     font-size: 3em;
-    color: white;
-    text-shadow: 2px 2px 4px #000; /* apenas contorno, sem fundo */
+    color: #fff;
     text-align: center;
     transition: opacity 1s ease-in-out;
     text-transform: uppercase; /* CAPS LOCK */
-    animation: flicker 2s infinite; /* efeito de piscar */
+    animation: flicker 2s infinite, glow 1.5s ease-in-out infinite alternate;
 }
 
 /* Animação de piscar como lâmpada */
 @keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.3; }
+}
+
+/* Efeito de brilho pulsante */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #ffcc00, 0 0 20px #ffcc00;
     }
-    20%, 24%, 55% {
-        opacity: 0.3;
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
     }
 }
 </style>
@@ -826,6 +831,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
