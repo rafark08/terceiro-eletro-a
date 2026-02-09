@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v17
+<head> v18
     
 
 
@@ -15,6 +15,11 @@
         <button id="startBtn">Entrar</button>
     </div>
 </div>
+
+<!-- Texto que aparecerá após 3 segundos -->
+<h1 class="intro-text" id="intro-text" style="display:none; opacity:0;">
+    Formados 2025
+</h1>
 
 <style>
 /* Overlay cobrindo toda a tela */
@@ -57,6 +62,17 @@
 #startBtn:hover {
     background: #2980b9;
 }
+
+/* Estilo do texto "Formados 2025" */
+.intro-text {
+    position: relative;
+    z-index: 1;
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+    text-align: center;
+    transition: opacity 1s ease-in-out;
+}
 </style>
 
 <script>
@@ -71,31 +87,25 @@ startBtn.addEventListener("click", () => {
     // remove overlay
     overlay.style.display = "none";
 
-    // aguarda 3 segundos e só então aplica blur e mostra o texto
+    // aguarda 3 segundos e só então mostra o texto "Formados 2025"
     setTimeout(function () {
-        const backgroundImage = document.getElementById("background-image");
         const introText = document.getElementById("intro-text");
-
-        backgroundImage.style.filter = "blur(8px)";
         introText.style.display = "block";
         introText.style.opacity = "1";
     }, 3000);
 });
 
-// Função para alternar blur e texto
+// Função para alternar mostrar/ocultar o texto
 function toggleEffect() {
     const body = document.body;
-    const backgroundImage = document.getElementById("background-image");
     const introText = document.getElementById("intro-text");
 
     if (body.classList.contains("no-blur")) {
         body.classList.remove("no-blur");
-        backgroundImage.style.filter = "blur(8px)";
         introText.style.display = "block";
         introText.style.opacity = "1";
     } else {
         body.classList.add("no-blur");
-        backgroundImage.style.filter = "none";
         introText.style.display = "none";
         introText.style.opacity = "0";
     }
@@ -804,6 +814,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
