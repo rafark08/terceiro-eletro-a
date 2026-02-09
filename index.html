@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v2
+<head> v3
     
-    <audio autoplay loop>
-        <source src="musica/trilha.mp3" type="audio/mpeg">
-        Seu navegador não suporta áudio HTML5.
-    </audio>
+<audio id="musica" autoplay loop muted>
+    <source src="musica/trilha.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio HTML5.
+</audio>
+
+<script>
+    const musica = document.getElementById("musica");
+
+    // Qualquer toque, clique ou tecla ativa o som
+    function ativarSom() {
+        musica.muted = false;  // desliga o mute
+        musica.play();          // toca a música
+        document.removeEventListener("click", ativarSom);
+        document.removeEventListener("touchstart", ativarSom);
+        document.removeEventListener("keydown", ativarSom);
+    }
+
+    document.addEventListener("click", ativarSom);
+    document.addEventListener("touchstart", ativarSom);
+    document.addEventListener("keydown", ativarSom);
+</script>
     
     
 <meta charset="UTF-8">
@@ -697,6 +714,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
