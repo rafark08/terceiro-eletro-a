@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> /* add música */
-
-    <audio autoplay loop>
+<head>
+    
+    <audio id="musica" autoplay loop muted>
   <source src="musica/trilha.mp3" type="audio/mpeg">
 </audio>
 
-
+<script>
+  window.addEventListener("click", () => {
+    const audio = document.getElementById("musica");
+    audio.muted = false;
+    audio.play();
+  }, { once: true });
+</script>
 
     
 <meta charset="UTF-8">
@@ -698,6 +704,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
