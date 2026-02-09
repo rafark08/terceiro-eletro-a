@@ -80,6 +80,36 @@ startBtn.addEventListener("click", () => {
         introText.style.opacity = "1";
     }, 3000); // 3 segundos após o clique
 });
+     document.addEventListener("DOMContentLoaded", function () {
+        function toggleEffect() {
+            const body = document.body;
+            const backgroundImage = document.getElementById("background-image");
+            const introText = document.getElementById("intro-text");
+    
+            if (body.classList.contains("no-blur")) {
+                // Remover classe 'no-blur' para restaurar blur e texto
+                body.classList.remove("no-blur");
+                // Restaurar filtro blur e opacidade do texto
+                backgroundImage.style.filter = "blur(8px)";
+                introText.style.display = "block";
+                introText.style.opacity = "1";
+            } else {
+                // Adicionar classe 'no-blur' para remover blur e texto
+                body.classList.add("no-blur");
+                // Remover filtro blur e ocultar texto
+                backgroundImage.style.filter = "none";
+                introText.style.display = "none";
+                introText.style.opacity = "0";
+            }
+        }
+    
+        // Adicionar evento de clique para alternar o efeito de blur e o texto
+        const introText = document.getElementById("intro-text");
+        introText.addEventListener("click", toggleEffect);
+    
+        const backgroundImage = document.getElementById("background-image");
+        backgroundImage.addEventListener("click", toggleEffect);
+    
 </script>
 
 
@@ -774,6 +804,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
