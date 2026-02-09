@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v3
+<head> v4
     
 <audio id="musica" autoplay loop muted>
     <source src="musica/trilha.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio HTML5.
 </audio>
 
+<div id="aviso" style="position:fixed;top:10px;width:100%;text-align:center;">
+  Toque na tela para ouvir a música 🎵
+</div>
+
 <script>
-    const musica = document.getElementById("musica");
+const musica = document.getElementById("musica");
+const aviso = document.getElementById("aviso");
 
-    // Qualquer toque, clique ou tecla ativa o som
-    function ativarSom() {
-        musica.muted = false;  // desliga o mute
-        musica.play();          // toca a música
-        document.removeEventListener("click", ativarSom);
-        document.removeEventListener("touchstart", ativarSom);
-        document.removeEventListener("keydown", ativarSom);
-    }
+function ativarSom() {
+  musica.muted = false;
+  musica.play();
+  aviso.style.display = 'none';
+  document.removeEventListener('click', ativarSom);
+  document.removeEventListener('touchstart', ativarSom);
+}
 
-    document.addEventListener("click", ativarSom);
-    document.addEventListener("touchstart", ativarSom);
-    document.addEventListener("keydown", ativarSom);
+document.addEventListener('click', ativarSom);
+document.addEventListener('touchstart', ativarSom);
 </script>
     
     
@@ -714,6 +716,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
