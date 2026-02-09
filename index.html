@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v21
+<head> v22
     
 
 
@@ -65,15 +65,20 @@
 
 /* Estilo do texto "FORMADOS 2025" */
 .intro-text {
-    position: relative;
+    position: absolute;   /* permite posicionar livremente */
+    top: 20px;            /* distância do topo da imagem */
+    left: 50%;            /* centraliza horizontalmente */
+    transform: translateX(-50%); /* corrige alinhamento */
     z-index: 1;
-    font-size: 3em;
+    font-size: 5em;       /* aumentei o tamanho do texto */
     color: #fff;
-    text-align: center;
-    transition: opacity 1s ease-in-out;
     text-transform: uppercase; /* CAPS LOCK */
+    transition: opacity 1s ease-in-out;
+    opacity: 0;           /* começa invisível */
+    display: none;        /* escondido até ser ativado */
     animation: flicker 2s infinite, glow 1.5s ease-in-out infinite alternate;
 }
+
 
 /* Animação de piscar como lâmpada */
 @keyframes flicker {
@@ -912,6 +917,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
