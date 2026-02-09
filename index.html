@@ -9,16 +9,11 @@
 <script>
 const musica = document.getElementById("musica");
 
-// Cria uma “tela invisível” que captura o primeiro toque
-document.addEventListener("click", () => {
-    musica.play();
-}, { once: true });
-
-document.addEventListener("touchstart", () => {
+// Captura o primeiro scroll do usuário
+document.addEventListener("scroll", () => {
     musica.play();
 }, { once: true });
 </script>
-
 
     
     
@@ -711,6 +706,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
