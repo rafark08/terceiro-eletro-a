@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v20.3
+<head> v20.4
     
 
 
@@ -548,19 +548,18 @@ body {
 </style>
 </head>
 <body> 
-
 <div class="section intro">
     <div class="background-image" id="background-image"></div>
-    <!-- Texto reposicionado para o topo -->
+    <!-- Texto em uma linha só -->
     <h1 class="intro-text" id="intro-text" onclick="toggleEffect()">FORMADOS 2025</h1>
 </div>
 
 <style>
 .intro-text {
     position: absolute;   /* permite posicionar livremente */
-    top: 20px;            /* distância do topo da tela */
+    top: 20px;            /* distância do topo da imagem */
     left: 50%;            /* centraliza horizontalmente */
-    transform: translateX(-50%); /* corrige o alinhamento central */
+    transform: translateX(-50%); /* corrige alinhamento */
     z-index: 1;
     font-size: 3em;
     color: #fff;
@@ -864,6 +863,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
+
 
 
 
