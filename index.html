@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v24.1
+<head> v25
     
-
-
 <audio id="musica" loop>
     <source src="musica/trilha.mp3" type="audio/mpeg">
 </audio>
@@ -129,15 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
     backgroundImage.addEventListener("click", toggleEffect);
 });
 </script>
-
-
-
-
-
-
-
-
-    
     
     
 <meta charset="UTF-8">
@@ -539,7 +528,7 @@ body {
 }
 </style>
 </head>
-<body> 
+<body>
 <div class="section intro">
     <div class="background-image" id="background-image"></div>
     <!-- Texto reposicionado para o topo -->
@@ -553,7 +542,7 @@ body {
     left: 50%;            /* centraliza horizontalmente */
     transform: translateX(-50%); /* corrige alinhamento */
     z-index: 1;
-    font-size: 5em;       /* texto menor */
+    font-size: 4em;       /* texto menor */
     color: #fff;
     text-transform: uppercase; /* CAPS LOCK */
     transition: opacity 1s ease-in-out;
@@ -598,34 +587,8 @@ startBtn.addEventListener("click", () => {
         introText.style.opacity = "1";
     }, 3000);
 });
-
-// Função para alternar mostrar/ocultar o texto
-function toggleEffect() {
-    const body = document.body;
-    const introText = document.getElementById("intro-text");
-
-    if (body.classList.contains("no-blur")) {
-        body.classList.remove("no-blur");
-        introText.style.display = "block";
-        introText.style.opacity = "1";
-    } else {
-        body.classList.add("no-blur");
-        introText.style.display = "none";
-        introText.style.opacity = "0";
-    }
-}
-
-// Adicionar evento de clique para alternar o efeito
-document.addEventListener("DOMContentLoaded", function () {
-    const introText = document.getElementById("intro-text");
-    const backgroundImage = document.getElementById("background-image");
-
-    introText.addEventListener("click", toggleEffect);
-    backgroundImage.addEventListener("click", toggleEffect);
-});
 </script>
-
-
+    
 
 <div class="section students">
     <div class="container">
@@ -845,7 +808,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const backgroundImage = document.getElementById("background-image");
         backgroundImage.addEventListener("click", toggleEffect);
     
-
+        // Efeito inicial de blur e introdução
+        setTimeout(function () {
+            document.getElementById("background-image").style.filter = "blur(8px)";
+            introText.style.opacity = "1";
+        }, 3000);
+    });
+    
 document.addEventListener("DOMContentLoaded", function() {
     // Função para calcular a idade
     function calculateAge(birthdate) {
@@ -904,33 +873,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
