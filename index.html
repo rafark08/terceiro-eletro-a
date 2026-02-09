@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> v27
+<head> v28
     
 <audio id="musica" loop>
     <source src="musica/trilha.mp3" type="audio/mpeg">
@@ -778,42 +778,6 @@ startBtn.addEventListener("click", () => {
     </div>
 </div>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        function toggleEffect() {
-            const body = document.body;
-            const backgroundImage = document.getElementById("background-image");
-            const introText = document.getElementById("intro-text");
-    
-            if (body.classList.contains("no-blur")) {
-                // Remover classe 'no-blur' para restaurar blur e texto
-                body.classList.remove("no-blur");
-                // Restaurar filtro blur e opacidade do texto
-                backgroundImage.style.filter = "blur(8px)";
-                introText.style.display = "block";
-                introText.style.opacity = "1";
-            } else {
-                // Adicionar classe 'no-blur' para remover blur e texto
-                body.classList.add("no-blur");
-                // Remover filtro blur e ocultar texto
-                backgroundImage.style.filter = "none";
-                introText.style.display = "none";
-                introText.style.opacity = "0";
-            }
-        }
-    
-        // Adicionar evento de clique para alternar o efeito de blur e o texto
-        const introText = document.getElementById("intro-text");
-        introText.addEventListener("click", toggleEffect);
-    
-        const backgroundImage = document.getElementById("background-image");
-        backgroundImage.addEventListener("click", toggleEffect);
-    
-        // Efeito inicial de blur e introdução
-        setTimeout(function () {
-            document.getElementById("background-image").style.filter = "blur(8px)";
-            introText.style.opacity = "1";
-        }, 3000);
-    });
     
 document.addEventListener("DOMContentLoaded", function() {
     // Função para calcular a idade
